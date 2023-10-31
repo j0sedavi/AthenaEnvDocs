@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prism.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="Index.css" type="text/css" media="all" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/all.css" integrity="sha512-ajhUYg8JAATDFejqbeN7KbF2zyPbbqz04dgOLyGcYEk/MJD3V+HJhJLKvJ2VVlqrr4PwHeGTTWxbI+8teA7snw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>about AthenaEnv</title>
+  </head>
+  <body>
+    <header>
+      <h1>about AthenaEnv</h1>
+    </header>
+    <img style="margin: 0;" class="logo" src="logo.png" alt="AthenaEnv" />
+    <section class="about">
+    <h1>About AthenaEnv</h1>
+    <p>AthenaEnv is a project that seeks to facilitate and at the same time brings a complete kit for users to create homebrew software for PlayStation 2 using the JavaScript language. It has dozens of built-in functions, both for creating games and apps. The main advantage over using AthenaEnv project instead of the pure PS2SDK is above all the practicality, you will use one of the simplest possible languages to create what you have in mind, besides not having to compile, just script and test, fast and simple.</p>
+    <h1>Prerequisites</h1>
+    <p>Using AthenaEnv you only need one way to code and one way to test your code, that is, if you want, you can even create your code on PS2, but I'll leave some recommendations below.</p>
+    <p>• PC: <a href="https://code.visualstudio.com/">Visual Studio Code</a>(with JavaScript extension) and <a href="https://pcsx2.net/">PCSX2</a>(1.7.0 or above, enabled HostFS is required) or PS2Client for test.
+<br/><br/>• How to enable HostFS on PCSX2 1.7.0:• (old) WxWidgets:</p>
+  <img class="image" src="https://user-images.githubusercontent.com/47725160/145600021-b07dd873-137d-4364-91ec-7ace0b1936e2.png" alt="image" />
+  <p>• Qt version:</p>
+  <img class="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/47725160/245224229-e90471f6-7ada-4176-88e8-8a9d2c1e7eb4.png" alt="image" />
+  <p>Qt recommendation: Enable console output</p>
+  <img class="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/47725160/245226430-7ced1570-0013-4072-ad01-66b8a63dab6e.png" alt="image" />
+  <p> •Android: <a href="https://play.google.com/store/apps/details?id=com.rhmsoft.edit">QuickEdit </a> and a PS2 with wLE for test.<br/><br/>
+Oh, and I also have to mention that an essential prerequisite for using AthenaEnv is knowing how to code in JavaScript. </p>
+<h1>Quick start with Athena</h1>
+<p>Hello World:</p>
+<pre id="pr">
+  <i  id="copy" class="far fa-clipboard" style="color: #ffffff;"></i>
+  <code id="coded" class="language-javascript code">
+const font = new Font("default");
+
+os.setInterval(() => { // Basically creates an infinite loop, similar to while true(you can use it too).
+  Screen.clear(); // Clear screen for the next frame.
+  font.print(0, 0, "Hello World!"); // x, y, text
+  Screen.flip(); // Updates the screen.
+}, 0);
+  </code>
+</pre>
+<p>See more examples at <a href="samples.html">AthenaEnv samples</a></p>
+<h1>Features</h1>
+<p>AthenaEnv uses a slightly modified version of the QuickJS interpreter for JavaScript language, which means that it brings almost modern JavaScript features so far.</p>
+<h3>Float32</h3>
+<p>This project introduces a (old)new data type for JavaScript: single floats. Despite being less accurate than the classic doubles for number semantics, they are important for performance on the PS2, as the console only processes 32-bit floats on its FPU.</p>
+<p>
+You can write single floats on AthenaEnv following the syntax below:</p>
+<pre id="pr">
+<i  id="copy" class="far fa-clipboard" style="color: #ffffff;"></i>
+<code id="coded" class="language-javascript code">
+let test_float = 15.0f; // The 'f' suffix makes QuickJS recognizes it as a single float.
+</code>
+</pre>
+<p>or</p>
+<pre id="pr">
+  <i  id="copy" class="far fa-clipboard" style="color: #ffffff;"></i>
+<code id="coded" class="language-javascript code">
+let test_float = Math.fround(15.0); // Math.fround returns real single floats on Athena.
+</code>
+</pre>
+<h3>How to run it</h3>
+
+<p>Athena is basically a JavaScript loader, so it loads .js files. It runs "main.js" by default, but you can run other file names by passing it as the first argument when launching the ELF file.
+</p>
+<p>If you try to just download it on releases tab and run it, that's what you will see:</p>
+  <img class="image" src="https://user-images.githubusercontent.com/47725160/230757268-5968d7e0-79df-4e98-9c02-4ec5252e056f.png" alt="image" />
+  <p>That's the default dashboard, coded in default main.js file. It searchs JavaScript files with the first line containing the following structure:</p>
+  <pre id="pr">
+  <i  id="copy" class="far fa-clipboard" style="color: #ffffff;"></i>
+<code id="coded" class="language-javascript code">
+// {"name": "App name", "author": "Who did it?", "version": "04012023", "icon": "app_icon.png", "file": "my_app.js"}
+// Now you can freely code below:
+</code>
+</pre>
+<p>Once it was found, it will appear on the dashboard app list.</p>
+<h3>Error reporting system</h3>
+<p>Athena has a consistent error system, which is capable of pointing the error type, custom message, files, lines and it even has a color code.</p>
+
+<p>EvalError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756846-e7e5ef7d-4ca6-4e10-822b-bd8ab94e302f.png" alt="image" />
+<p>SyntaxError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756861-94df60f8-8550-43a3-ac43-56d150e94145.png" alt="image" />
+<p>TypeError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756863-9b5d2b27-ef7c-449b-8663-7b466243c425.png" alt="image" />
+<p>ReferenceError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756870-1deac594-7b3b-4804-a5cd-bfe366f5be27.png" alt="image" />
+<p>RangeError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756874-5b03f2ee-1f23-4629-a775-5567c580b1da.png" alt="image" />
+<p>InternalError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756880-d3f9449f-a379-4eec-8342-721987d3c7a9.png" alt="image" />
+<p>URIError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756884-0e7dc7c8-91b3-4a4d-9d0f-ee120b4cc18a.png" alt="image" />
+<p>AggregateError:</p>
+<img class="image" src="https://user-images.githubusercontent.com/47725160/230756885-11749f0c-ef5b-4f17-ad78-59181230e75a.png" alt="image" />
+<h1>Functions, classes and consts</h1>
+<p>Below is the list of usable functions of AthenaEnv project currently, this list is constantly being updated.</p>
+<p>P.S.: Italic parameters refer to optional parameters</p>
+    </section>
+    <script src="prism.js" type="text/javascript" charset="utf-8"></script>
+    <script src="Index.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+[{
+  "fun": {
+    "module": "module",
+    "description": "desc",
+    "parameters": [
+      {"type": "String","name": "str","description": "str"}
+    ],
+    "methods": [
+      {"name": "test","description": "test"}
+    ],
+    "properties": [
+      {"name": "test","description": "file test"}
+    ],
+    "return": "test05.;test036;test9736",
+    "example": "//code\n//code\ncode"
+}
+}]
