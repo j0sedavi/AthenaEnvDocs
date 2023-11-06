@@ -3,15 +3,15 @@
     "module": "module",
     "description": "desc",
     "parameters": [
-      {"type": "String","name": "str","description": "str"}
+      {"type": "String","name": "test","description": "teste"}
     ],
     "methods": [
-      {"name": "test","description": "test"}
+      {"name": "test1","description": "test1"}
     ],
     "properties": [
-      {"name": "test","description": "file test"}
+      {"name": "test2","description": "test2"}
     ],
-    "return": "test05.;test036;test9736",
+    "return": "test01.;test02;test03",
     "example": "//code\n//code\ncode"
 }
 }]

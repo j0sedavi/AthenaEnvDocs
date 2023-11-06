@@ -1,6 +1,6 @@
 const { search } = window.location
 const params = new URLSearchParams(search);
-var aula = params.get("aula")
+var aula = params.get("fun")
 var title = document.getElementById('title')
 title.textContent = aula;
 if(aula === null || aula === " " || aula === "") {
@@ -50,7 +50,11 @@ function load(dataJson) {
   for(var dt in data.parameters) {
     if(data.parameters.hasOwnProperty(dt)) {
     if(parseInt(dt) >= limit) {
+    if(data.parameters[dt].type == " ") {
+    content += `${data.parameters[dt].name}`
+    }else{
     content += `${data.parameters[dt].type}:${data.parameters[dt].name}`
+    }
     }else{
     content += `${data.parameters[dt].type}:${data.parameters[dt].name}, `
     }

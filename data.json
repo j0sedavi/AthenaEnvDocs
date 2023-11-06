@@ -4,9 +4,10 @@
     "description": "open file to read, open and modify",
     "parameters": [
       {"type": "String","name": "filename","description": "Path to the file, E.g.: 'text/test.txt'."},
-      {"type": "String","name": "flags","description": "File mode, E.g.: 'w', 'r', 'wb', 'rb', etc."}
+      {"type": "String","name": "flags","description": "File mode, E.g.: 'w', 'r', 'wb', 'rb', etc."},
+      {"type": "","name": "errorObj = undefined","description": "set its errno property to the error code or to 0 if no error occured."}
     ],
-    "return": "file.;False.",
+    "return": "FILE object.;null in case of I/O error.",
     "methods" : [
       {"name": "close()","description": "Close the file. Return 0 if OK or -errno in case of I/O error."},
       {"name": "puts(str)","description": "Outputs the string with the UTF-8 encoding."},
@@ -28,17 +29,30 @@
       ],
     "example": "var file = std.open('text/test.txt',r)\nconsole.log(file.readAsString()) //It will print the contents of the file.txt file"
   },
-  "std.evalScript(, options = undefined)": {
+  "std.evalScript": {
     "module": "std",
     "description": "Evaluate the string str as a script (global eval).",
     "parameters": [
       {"type": "String","name": "str","description": "Script"},
-      {"type": "String","name": "options = undefined","description": "file opening mode"}
+      {"type": " ","name": "options = undefined","description": "options script"}
     ],
-    "properties": [
-      {"name": "test","description": "file test"}
+    "example": "var script = `console.log('hello')`\nstd.evalScript(script)"
+  },
+  "std.loadScript": {
+    "module": "std",
+    "description": "Evaluate the file filename as a script (global eval).",
+    "parameters": [
+      {"type": "String","name": "filename","description": ".js file path"}
     ],
-    "return": "file.;False.",
-    "example": "let file = std.open('file.txt',r)\nconsole.log(file.readAsString()) //It will print the contents of the file.txt file"
+    "example": "std.loadScript('path/file.js')"
+  },
+  "std.loadFile": {
+    "module": "std",
+    "description": "Load the file filename",
+    "parameters": [
+      {"type": "String","name": "filename","description": "file path"}
+    ],
+    "return": "string assuming UTF-8 encoding.;null in case of I/O error.",
+    "example": "let fstr = std.loadFile('path/file.txt')"
   }
 }

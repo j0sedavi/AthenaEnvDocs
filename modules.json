@@ -1,0 +1,21 @@
+{
+  "Std":"The std module provides wrappers to the libc stdlib.h and stdio.h and a few other utilities.",
+  "Os":"The os module provides Operating System specific functions: low level file access, signals, timers, asynchronous I/O The OS functions usually return 0 if OK or an OS specific negative error code.",
+   "Color": "This module provides functionalities to create and manipulate color objects, allowing you to get and set red, green, blue, and alpha intensities in a color.",
+   "Image": "Streamlines image creation and display, offering precise control over visual properties and efficient loading for impactful visual experiences.",
+   "Draw": "Provides simple functions to draw points, rectangles, lines, circles, triangles, and quadrilaterals on the screen.",
+  "Render": "Enables 3D rendering with simple OBJ file loading and drawing capabilities. Ensure z-buffering is enabled for proper rendering. Supports basic 3D model loading and rendering. Cameras and lights can be positioned and configured for dynamic scenes",
+   "Screen": "The entire screen of your project (2D and 3D), being able to change the resolution, enable or disable parameters.",
+   "Font": "Functions that control the texts that appear on the screen, loading texts, drawing and unloading from memory.",
+   "Pads": "Above being able to draw and everything else, A human interface is important. Supports rumble and pressure sensitivity.",
+   "Keyboard": "Basic USB keyboard support.",
+   "Mouse": "Basic USB mouse support.",
+   "System": "Files, folders and system stuff.",
+   "Timer": "Control the time precisely in your code, it contains several timing functions.",
+   "Sound": "Sound functions, supporting WAV, OGG and ADPCM.",
+   "Archive": "A simple compressed file extractor and manager.",
+   "IOP": "The PlayStation 2 has an I/O processor to deal with drivers and modules. Take control of it!",
+   "Network": "Net basics and web requests.",
+   "Request": "Simplified HTTP requests with sync and async methods for easy data retrieval.",
+   "Socket": "Well, sockets"
+}
