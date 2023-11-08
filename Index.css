@@ -11,6 +11,7 @@ body {
 
 .logo {
   width: 100%;
+  height: auto;
 }
 header {
   background-color: #4CAF50;
@@ -65,9 +66,16 @@ header h1 {
 }
 ul li{
   margin-bottom: 5px;
+  font-size: 2vh;
 }
 p,h1,h2,h3 {
   margin-inline: 2vh;
+}
+p {
+  font-size: 2vh;
+}
+h1 {
+  font-size: 3vh;
 }
 iframe {
   height: 40vh;

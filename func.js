@@ -49,14 +49,11 @@ function load(dataJson) {
   var limit = data.parameters.length - 1;
   for(var dt in data.parameters) {
     if(data.parameters.hasOwnProperty(dt)) {
-    if(parseInt(dt) >= limit) {
-    if(data.parameters[dt].type == " ") {
-    content += `${data.parameters[dt].name}`
+    if(parseInt(dt) === limit) {
+    content += data.parameters[dt].type == "" ? `${data.parameters[dt].name}` : `${data.parameters[dt].type}:${data.parameters[dt].name}`;
     }else{
-    content += `${data.parameters[dt].type}:${data.parameters[dt].name}`
-    }
-    }else{
-    content += `${data.parameters[dt].type}:${data.parameters[dt].name}, `
+    content += data.parameters[dt].type == "" ? `${data.parameters[dt].name},` : `${data.parameters[dt].type}:${data.parameters[dt].name},`;
+      
     }
   }
   }

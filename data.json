@@ -27,7 +27,7 @@
       {"name": "getByte()","description": "Return the next byte from the file. Return -1 if the end of file is reached."},
       {"name": "putByte(c)","description": "Write one byte to the file."}
       ],
-    "example": "var file = std.open('text/test.txt',r)\nconsole.log(file.readAsString()) //It will print the contents of the file.txt file"
+    "example": "var file = std.open('text/test.txt','r')\nconsole.log(file.readAsString()) //It will print the contents of the file.txt file"
   },
   "std.evalScript": {
     "module": "std",
@@ -54,5 +54,25 @@
     ],
     "return": "string assuming UTF-8 encoding.;null in case of I/O error.",
     "example": "let fstr = std.loadFile('path/file.txt')"
+  },
+  "std.fdopen": {
+    "module": "std",
+    "description": "Open a file from a file handle (wrapper to the libc fdopen())",
+    "parameters": [
+      {"type": "","name": "fd","description": "file handle"},
+      {"type": "String","name": "flags","description": "File mode, E.g.: 'w', 'r', 'wb', 'rb', etc."},
+      {"type": "","name": "errorObj = undefined","description": "set its errno property to the error code or to 0 if no error occured."}      
+    ],
+    "return": "FILE object.;null in case of I/O error.",
+    "example": "let file = std.open('text/test.txt','r')\nlet fd = std.fdopen(file,'r')"
+  },
+  "std.tmpfile": {
+    "module": "std",
+    "description": "Open a temporary file.",
+    "parameters": [
+      {"type": "","name": "errorObj = undefined","description": "set its errno property to the error code or to 0 if no error occured."}      
+    ],
+    "return": "FILE object.;null in case of I/O error.",
+    "example": "let file = std.tmpfile()"
   }
 }
