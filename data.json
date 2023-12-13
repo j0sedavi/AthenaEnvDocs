@@ -3,38 +3,87 @@
     "module": "std",
     "description": "open file to read, open and modify",
     "parameters": [
-      {"type": "String","name": "filename","description": "Path to the file, E.g.: 'text/test.txt'."},
-      {"type": "String","name": "flags","description": "File mode, E.g.: 'w', 'r', 'wb', 'rb', etc."},
-      {"type": "","name": "errorObj = undefined","description": "set its errno property to the error code or to 0 if no error occured."}
+      {
+        "type": "String",
+        "name": "filename",
+        "description": "Path to the file, E.g.: 'text/test.txt'."
+      },
+      {
+        "type": "String",
+        "name": "flags",
+        "description": "File mode, E.g.: 'w', 'r', 'wb', 'rb', etc."
+      },
+      {
+        "type": "",
+        "name": "errorObj = undefined",
+        "description": "set its errno property to the error code or to 0 if no error occured."
+      }
     ],
     "return": "FILE object.;null in case of I/O error.",
-    "methods" : [
-      {"name": "close()","description": "Close the file. Return 0 if OK or -errno in case of I/O error."},
-      {"name": "puts(str)","description": "Outputs the string with the UTF-8 encoding."},
-      {"name": "printf(fmt, ...args)","description": "Formatted printf, supporting standard C library printf formats. Integer formats like %d truncate Numbers or BigInts to 32 bits, but using the 'l' modifier (e.g., %ld) truncates them to 64 bits."},
-      {"name": "flush()","description": "Flush the buffered file."},
-      {"name": "seek(offset, whence)","description": "Seek to a give file position (whence is std.SEEK_*). offset can be a number or a bigint. Return 0 if OK or -errno in case of I/O error."},
-      {"name": "tell()","description": "Return the current file position."},
-      {"name": "tello()","description": "Return the current file position as a bigint."},
-      {"name": "eof()","description": "Return true if end of file."},
-      {"name": "fileno()","description": "Return the associated OS handle."},
-      {"name": "error()","description": "Return true if there was an error."},
-      {"name": "clearerr()","description": "Clear the error indication."},
-      {"name": "read(buffer, position, length)","description": "Read length bytes from the file to the ArrayBuffer buffer at byte position position (wrapper to the libc fread)."},
-      {"name": "write(buffer, position, length)","description": "Write length bytes to the file from the ArrayBuffer buffer at byte position position (wrapper to the libc fwrite)."},
-      {"name": "getline()","description": "Return the next line from the file, assuming UTF-8 encoding, excluding the trailing line feed."},
-      {"name": "readAsString(max_size = undefined)","description": "Read max_size bytes from the file and return them as a string assuming UTF-8 encoding. If max_size is not present, the file is read up its end."},
-      {"name": "getByte()","description": "Return the next byte from the file. Return -1 if the end of file is reached."},
-      {"name": "putByte(c)","description": "Write one byte to the file."}
-      ],
+    "methods": [
+      {
+        "name": "close()",
+        "description": "Close the file. Return 0 if OK or -errno in case of I/O error."
+      },
+      {
+        "name": "puts(str)",
+        "description": "Outputs the string with the UTF-8 encoding."
+      },
+      {
+        "name": "printf(fmt, ...args)",
+        "description": "Formatted printf, supporting standard C library printf formats. Integer formats like %d truncate Numbers or BigInts to 32 bits, but using the 'l' modifier (e.g., %ld) truncates them to 64 bits."
+      },
+      { "name": "flush()", "description": "Flush the buffered file." },
+      {
+        "name": "seek(offset, whence)",
+        "description": "Seek to a give file position (whence is std.SEEK_*). offset can be a number or a bigint. Return 0 if OK or -errno in case of I/O error."
+      },
+      { "name": "tell()", "description": "Return the current file position." },
+      {
+        "name": "tello()",
+        "description": "Return the current file position as a bigint."
+      },
+      { "name": "eof()", "description": "Return true if end of file." },
+      { "name": "fileno()", "description": "Return the associated OS handle." },
+      {
+        "name": "error()",
+        "description": "Return true if there was an error."
+      },
+      { "name": "clearerr()", "description": "Clear the error indication." },
+      {
+        "name": "read(buffer, position, length)",
+        "description": "Read length bytes from the file to the ArrayBuffer buffer at byte position position (wrapper to the libc fread)."
+      },
+      {
+        "name": "write(buffer, position, length)",
+        "description": "Write length bytes to the file from the ArrayBuffer buffer at byte position position (wrapper to the libc fwrite)."
+      },
+      {
+        "name": "getline()",
+        "description": "Return the next line from the file, assuming UTF-8 encoding, excluding the trailing line feed."
+      },
+      {
+        "name": "readAsString(max_size = undefined)",
+        "description": "Read max_size bytes from the file and return them as a string assuming UTF-8 encoding. If max_size is not present, the file is read up its end."
+      },
+      {
+        "name": "getByte()",
+        "description": "Return the next byte from the file. Return -1 if the end of file is reached."
+      },
+      { "name": "putByte(c)", "description": "Write one byte to the file." }
+    ],
     "example": "var file = std.open('text/test.txt','r')\nconsole.log(file.readAsString()) //It will print the contents of the file.txt file"
   },
   "std.evalScript": {
     "module": "std",
     "description": "Evaluate the string str as a script (global eval).",
     "parameters": [
-      {"type": "String","name": "str","description": "Script"},
-      {"type": " ","name": "options = undefined","description": "options script"}
+      { "type": "String", "name": "str", "description": "Script" },
+      {
+        "type": " ",
+        "name": "options = undefined",
+        "description": "options script"
+      }
     ],
     "example": "var script = `console.log('hello')`\nstd.evalScript(script)"
   },
@@ -42,7 +91,7 @@
     "module": "std",
     "description": "Evaluate the file filename as a script (global eval).",
     "parameters": [
-      {"type": "String","name": "filename","description": ".js file path"}
+      { "type": "String", "name": "filename", "description": ".js file path" }
     ],
     "example": "std.loadScript('path/file.js')"
   },
@@ -50,7 +99,7 @@
     "module": "std",
     "description": "Load the file filename",
     "parameters": [
-      {"type": "String","name": "filename","description": "file path"}
+      { "type": "String", "name": "filename", "description": "file path" }
     ],
     "return": "string assuming UTF-8 encoding.;null in case of I/O error.",
     "example": "let fstr = std.loadFile('path/file.txt')"
@@ -59,9 +108,17 @@
     "module": "std",
     "description": "Open a file from a file handle (wrapper to the libc fdopen())",
     "parameters": [
-      {"type": "","name": "fd","description": "file handle"},
-      {"type": "String","name": "flags","description": "File mode, E.g.: 'w', 'r', 'wb', 'rb', etc."},
-      {"type": "","name": "errorObj = undefined","description": "set its errno property to the error code or to 0 if no error occured."}      
+      { "type": "", "name": "fd", "description": "file handle" },
+      {
+        "type": "String",
+        "name": "flags",
+        "description": "File mode, E.g.: 'w', 'r', 'wb', 'rb', etc."
+      },
+      {
+        "type": "",
+        "name": "errorObj = undefined",
+        "description": "set its errno property to the error code or to 0 if no error occured."
+      }
     ],
     "return": "FILE object.;null in case of I/O error.",
     "example": "let file = std.open('text/test.txt','r')\nlet fd = std.fdopen(file,'r')"
@@ -70,9 +127,59 @@
     "module": "std",
     "description": "Open a temporary file.",
     "parameters": [
-      {"type": "","name": "errorObj = undefined","description": "set its errno property to the error code or to 0 if no error occured."}      
+      {
+        "type": "",
+        "name": "errorObj = undefined",
+        "description": "set its errno property to the error code or to 0 if no error occured."
+      }
     ],
     "return": "FILE object.;null in case of I/O error.",
     "example": "let file = std.tmpfile()"
+  },
+  "std.puts": {
+    "module": "std",
+    "description": "Equivalent to std.out.puts(str).",
+    "parameters": [
+      {
+        "type": "String",
+        "name": "str",
+        "description": "std.puts(str) - Equivalent to std.out.puts(str)"
+      }
+    ],
+    "example": "std.puts('hello')"
+  },
+  "std.printf": {
+    "module": "std",
+    "description": "Equivalent to std.out.printf(fmt, ...args).",
+    "parameters": [
+      {
+        "type": "String",
+        "name": "fmt",
+        "description": "A string containing format specifiers for the output."
+      },
+      {
+        "type": "any",
+        "name": "...args",
+        "description": "Additional arguments to be formatted and printed based on the format specifiers in 'fmt'."
+      }
+    ],
+    "example": "std.printf('Hello, %s! Today is %dth of %s.', 'John', 12, 'December');"
+  },
+  "std.sprintf": {
+    "module": "std",
+    "description": "Equivalent to the libc sprintf().",
+    "parameters": [
+      {
+        "type": "String",
+        "name": "fmt",
+        "description": "A string containing format specifiers for the output."
+      },
+      {
+        "type": "any",
+        "name": "...args",
+        "description": "Additional arguments to be formatted and inserted into the 'fmt' string."
+      }
+    ],
+    "example": "const result = std.sprintf('Hello, %s! Today is %dth of %s.', 'John', 12, 'December');"
   }
 }
